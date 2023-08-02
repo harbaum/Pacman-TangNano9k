@@ -1,0 +1,43 @@
+<?xml version="1" encoding="UTF-8"?>
+<!DOCTYPE gowin-fpga-project>
+<Project>
+    <Template>FPGA</Template>
+    <Version>5</Version>
+    <Device name="GW1NR-9C" pn="GW1NR-LV9QN88PC6/I5">gw1nr9c-004</Device>
+    <FileList>
+        <File path="src/gowin_clkdiv/gowin_clkdiv.v" type="file.verilog" enable="1"/>
+        <File path="src/gowin_dpb/ram.v" type="file.verilog" enable="1"/>
+        <File path="src/gowin_rpll/pll_174m.v" type="file.verilog" enable="1"/>
+        <File path="src/gowin_rpll/pll_240m.v" type="file.verilog" enable="1"/>
+        <File path="src/hdmi/audio_clock_regeneration_packet.sv" type="file.verilog" enable="1"/>
+        <File path="src/hdmi/audio_info_frame.sv" type="file.verilog" enable="1"/>
+        <File path="src/hdmi/audio_sample_packet.sv" type="file.verilog" enable="1"/>
+        <File path="src/hdmi/auxiliary_video_information_info_frame.sv" type="file.verilog" enable="1"/>
+        <File path="src/hdmi/hdmi.sv" type="file.verilog" enable="1"/>
+        <File path="src/hdmi/packet_assembler.sv" type="file.verilog" enable="1"/>
+        <File path="src/hdmi/packet_picker.sv" type="file.verilog" enable="1"/>
+        <File path="src/hdmi/serializer.sv" type="file.verilog" enable="1"/>
+        <File path="src/hdmi/source_product_description_info_frame.sv" type="file.verilog" enable="1"/>
+        <File path="src/hdmi/tmds_channel.sv" type="file.verilog" enable="1"/>
+        <File path="src/roms/82s123_7f.v" type="file.verilog" enable="1"/>
+        <File path="src/roms/82s126_1m.v" type="file.verilog" enable="1"/>
+        <File path="src/roms/82s126_3m.v" type="file.verilog" enable="1"/>
+        <File path="src/roms/82s126_4a.v" type="file.verilog" enable="1"/>
+        <File path="src/roms/pacman_5e.v" type="file.verilog" enable="1"/>
+        <File path="src/roms/pacman_5f.v" type="file.verilog" enable="1"/>
+        <File path="src/roms/pacman_6e.v" type="file.verilog" enable="1"/>
+        <File path="src/roms/pacman_6f.v" type="file.verilog" enable="1"/>
+        <File path="src/roms/pacman_6h.v" type="file.verilog" enable="1"/>
+        <File path="src/roms/pacman_6j.v" type="file.verilog" enable="1"/>
+        <File path="src/top.sv" type="file.verilog" enable="1"/>
+        <File path="src/video.v" type="file.verilog" enable="1"/>
+        <File path="src/T80/T80.vhd" type="file.vhdl" enable="1"/>
+        <File path="src/T80/T80_ALU.vhd" type="file.vhdl" enable="1"/>
+        <File path="src/T80/T80_MCode.vhd" type="file.vhdl" enable="1"/>
+        <File path="src/T80/T80_Pack.vhd" type="file.vhdl" enable="1"/>
+        <File path="src/T80/T80_Reg.vhd" type="file.vhdl" enable="1"/>
+        <File path="src/T80/T80sed.vhd" type="file.vhdl" enable="1"/>
+        <File path="src/pacman.cst" type="file.cst" enable="1"/>
+        <File path="src/pacman.sdc" type="file.sdc" enable="1"/>
+    </FileList>
+</Project>
