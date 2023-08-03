@@ -62,11 +62,10 @@ in the [src/roms](src/roms) directory and then run the
 
 Convert the ROMs as described above.
 
-Open the [project file](https://github.com/harbaum/Pacman-TangNano9k/blob/main/pacman.gprj) in
-the GoWin IDE and make sure you have "System Verilog 2017" selected in
-```Project/Configuraion/Synthesize/General```.
-
-Rinally run the synthesis and download the resulting bitstream onto the TangNano9K.
+Open the [project
+file](https://github.com/harbaum/Pacman-TangNano9k/blob/main/pacman.gprj)
+in the GoWin IDE run the synthesis and download the resulting
+bitstream onto the TangNano9K.
 
 ## Buttons
 
@@ -74,3 +73,15 @@ Once the game runs it can be controlled with six buttons connected to the TangNa
 as depicted below:
 
 ![Button mapping](images/buttons.jpg)
+
+The [pins used](src/pacman.cst) are:
+
+| Function | Pin Name | Pin No |
+|----------|---------:|-------:|
+| Up       |   IOB8A  |    25  |
+| Down     |   IOB8B  |    26  |
+| Left     |  IOB11A  |    27  |
+| Right    |  IOB11B  |    28  |
+| Coin     |  IOB13A  |    29  |
+| Start    |  IOB13B  |    30  |
+
