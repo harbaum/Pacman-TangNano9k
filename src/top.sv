@@ -3,9 +3,6 @@
 // enable for 16:9 (1024*576) instead of 4:3 (768*576) video
 `define WIDE
 
-// TODO:
-// - generate audio clock bit from topmost counter bit
-
 module top(
   input clk,
 
