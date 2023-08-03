@@ -23,7 +23,7 @@ module hdmi
 
     // Defaults to minimum bit lengths required to represent positions.
     // Modify these parameters if you have alternate desired bit lengths.
-    parameter int BIT_WIDTH = VIDEO_ID_CODE < 4 ? 10 : VIDEO_ID_CODE == 4 || VIDEO_ID_CODE == 17 ? 11 : 12,
+    parameter int BIT_WIDTH = VIDEO_ID_CODE < 4 ? 10 : VIDEO_ID_CODE == 4 || VIDEO_ID_CODE == 65 ? 11 : 12,
     parameter int BIT_HEIGHT = VIDEO_ID_CODE == 16 ? 11: 10,
 
     // A true HDMI signal sends auxiliary data (i.e. audio, preambles) which prevents it from being parsed by DVI signal sinks.
@@ -151,27 +151,7 @@ generate
             assign vsync_pulse_size = 5;
             assign invert = 0;
         end
-        17:   // modified for 768/1024x576p@60hz
-        begin
-            if(VIDEO_WIDE) begin
-                assign frame_width = 1344;
-                assign screen_width = 1024;
-                assign hsync_pulse_start = 32;
-                assign hsync_pulse_size = 72;
-            end else begin
-                assign frame_width = 976;
-                assign screen_width = 768;
-                assign hsync_pulse_start = 24;
-                assign hsync_pulse_size = 80;
-            end
-
-            assign frame_height = 597;
-            assign screen_height = 576;
-            assign vsync_pulse_start = 1;
-            assign vsync_pulse_size = 3;
-            assign invert = 1;
-        end
-        18:   // this was for 17 _and_ 18
+        17, 18:
         begin
             assign frame_width = 864;
             assign frame_height = 625;
@@ -194,6 +174,26 @@ generate
             assign vsync_pulse_start = 5;
             assign vsync_pulse_size = 5;
             assign invert = 0;
+        end
+        65:   // custom mode: 768/1024x576p@60hz
+        begin
+            if(VIDEO_WIDE) begin
+                assign frame_width = 1344;
+                assign screen_width = 1024;
+                assign hsync_pulse_start = 32;
+                assign hsync_pulse_size = 72;
+            end else begin
+                assign frame_width = 976;
+                assign screen_width = 768;
+                assign hsync_pulse_start = 24;
+                assign hsync_pulse_size = 80;
+            end
+
+            assign frame_height = 597;
+            assign screen_height = 576;
+            assign vsync_pulse_start = 1;
+            assign vsync_pulse_size = 3;
+            assign invert = 1;
         end
         95, 105, 97, 107:
         begin
@@ -226,12 +226,10 @@ localparam real VIDEO_RATE = (VIDEO_ID_CODE == 1 ? 25.2E6
     : VIDEO_ID_CODE == 2 || VIDEO_ID_CODE == 3 ? 27.027E6
     : VIDEO_ID_CODE == 4 ? 74.25E6
     : VIDEO_ID_CODE == 16 ? 148.5E6
-//TH    : VIDEO_ID_CODE == 17 || VIDEO_ID_CODE == 18 ? 27E6
-//    : VIDEO_ID_CODE == 17 ? 35.1E6    // TH: modified
-    : VIDEO_ID_CODE == 17 ? 48.14E6    // TH: modified
-    : VIDEO_ID_CODE == 18 ? 27E6
+    : VIDEO_ID_CODE == 17 || VIDEO_ID_CODE == 18 ? 27E6
     : VIDEO_ID_CODE == 19 ? 74.25E6
     : VIDEO_ID_CODE == 34 ? 74.25E6
+    : VIDEO_ID_CODE == 65 ? (VIDEO_WIDE?47.8E6:38.4E6)  // custom 768/1024 x 576p @ 60hz
     : VIDEO_ID_CODE == 95 || VIDEO_ID_CODE == 105 || VIDEO_ID_CODE == 97 || VIDEO_ID_CODE == 107 ? 594E6
     : 0) * (VIDEO_REFRESH_RATE == 59.94 || VIDEO_REFRESH_RATE == 29.97 ? 1000.0/1001.0 : 1); // https://groups.google.com/forum/#!topic/sci.engr.advanced-tv/DQcGk5R_zsM
 

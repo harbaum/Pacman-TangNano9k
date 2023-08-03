@@ -1,7 +1,7 @@
 /* top.sv - pacman on tang nano 9k toplevel */
 
 // enable for 16:9 (1024*576) instead of 4:3 (768*576) video
-`define WIDE
+// `define WIDE
 
 module top(
   input clk,
@@ -26,18 +26,18 @@ module top(
 // 1024x576p@60hz: 240.7 MHz HDMI clock
 // actual hdmi clock = 239.14 MHz
 // actual pixel clock = 47.828 MHz
-// 47828000 / 48000 - 1 = 995
+// 47828000 / 48000 / 2 - 1 = 497
 `define PLL pll_240m 
-`define AUDIO_DIVISOR 10'd995
+`define AUDIO_DIVISOR 9'd497
 `define VIDEO_WIDE 1
 `define PIXEL_CLOCK 47828000
 `else
 // 768x576p@60hz:  174.8 MHz HDMI clock, actual pixel clock = 34.8 MHz
 // actual hdmi clock = 174 MHz
 // actual pixel clock = 34.8 MHz
-// 34800000 / 48000 - 1 = 724
+// 34800000 / 48000 / 2 - 1 = 361
 `define PLL pll_174m 
-`define AUDIO_DIVISOR 10'd724
+`define AUDIO_DIVISOR 9'd361
 `define VIDEO_WIDE 0
 `define PIXEL_CLOCK  34800000
 `endif
@@ -63,14 +63,16 @@ Gowin_CLKDIV clk_div_5 (
     );
 
 // generate 48khz audio clock
-wire clk_audio = aclk_cnt[9];
-reg [9:0] aclk_cnt;
+reg clk_audio;
+reg [8:0] aclk_cnt;
 always @(posedge clk_pixel) begin
-    // divisor = pixel clock / 48000 - 1
+    // divisor = pixel clock / 48000 / 2 - 1
     if(aclk_cnt < `AUDIO_DIVISOR)
-        aclk_cnt <= aclk_cnt + 10'd1;
-    else
-        aclk_cnt <= 0;
+        aclk_cnt <= aclk_cnt + 9'd1;
+    else begin
+        aclk_cnt <= 9'd0;
+        clk_audio <= ~clk_audio;
+    end
 end
 
 /* -------------------- HDMI video and audio -------------------- */
@@ -82,11 +84,12 @@ ELVDS_OBUF tmds_bufds [3:0] (
         .OB({tmds_clk_n, tmds_d_n})
 );
 
-logic [23:0] rgb;  // rgb color signal
-logic [10:0] cx;   // horizontal pixel counter
-logic [9:0]  cy;   // vertical pixel counter
+logic [23:0] rgb;                // rgb color signal
+logic [10:0] cx;                 // horizontal pixel counter
+logic [9:0]  cy;                 // vertical pixel counter
+reg [9:0] audio_out_register;    // register holding the single pacman audio channel
 
-hdmi #(.VIDEO_ID_CODE(17), .VIDEO_WIDE(`VIDEO_WIDE), .VIDEO_REFRESH_RATE(60),
+hdmi #(.VIDEO_ID_CODE(65), .VIDEO_WIDE(`VIDEO_WIDE), .VIDEO_REFRESH_RATE(60),
     .AUDIO_RATE(48000), .AUDIO_BIT_WIDTH(16),
     .VENDOR_NAME( { "MiST", 32'd0} ),
     .PRODUCT_DESCRIPTION( {"Pacman Arcade", 24'd0} )
@@ -242,8 +245,6 @@ prom_82s126_3m prom_82s126_3m_inst (
     .ad( wave_addr ),
     .dout(dout_wave_b)
 );
-
-reg [9:0] audio_out_register;
 
 reg [9:0] audio_cnt;  // counter to divide system clock down to audio clock
 reg [1:0] audio_ch;   // audio channel counter 0, 1 &2
