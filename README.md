@@ -7,13 +7,15 @@ video and audio output.
 
 ## Why another Pac-Man in HDL?
 
-There are many Pac-Man implementations in HDL, especially the
-[great version by MikeJ](https://www.fpgaarcade.com/kb/pacman/).
+There are many Pac-Man implementations in HDL, especially the [great
+version by MikeJ](https://www.fpgaarcade.com/kb/pacman/).  I wanted to
+gain some experiences with the GoWin FPGAs and wanted to make use of
+the HDMI output of the TangNano9K. So I wrote another Pac-Man.
 
-These versions recreate the original video and as such generate a
-upright 60hz signal with 60hz NTSC timing. Such a signal can be
-converted to HDMI in landscape format. But that needs a seperate frame
-buffer.
+Most existing versions recreate the original video and as such
+generate a upright 60hz signal with 60hz NTSC timing. Such a signal
+can be converted to HDMI in landscape format. But that needs a
+seperate frame buffer.
 
 I wanted to implement the video to directly output a signal compatible
 with modern screens. So the video logic implemented here does not work
@@ -64,3 +66,10 @@ the GoWin IDE and make sure you have "System Verilog 2017" selected in
 ```Project/Configuraion/Synthesize/General```.
 
 Run the synthesis and download the resulting bitstream onto the TangNano9K.
+
+## Buttons
+
+Once the game runs it can be controlled with six buttons connected to the TangNano9K
+as depicted below:
+
+![Button mapping](images/buttons.jpg)
