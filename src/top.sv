@@ -1,7 +1,7 @@
 /* top.sv - pacman on tang nano 9k toplevel */
 
 // enable for 16:9 (1024*576) instead of 4:3 (768*576) video
-// `define WIDE
+`define WIDE
 
 module top(
   input clk,
