@@ -1,4 +1,4 @@
-# Pacman-TangNano9k
+# Pac-Man on TangNano9k
 
 A Pac-Man Arcade implementation for the TangNano9K using HDMI for
 video and audio output.
