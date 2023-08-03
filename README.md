@@ -1,7 +1,8 @@
 # Pac-Man on TangNano9k
 
-A Pac-Man Arcade implementation for the TangNano9K using HDMI for
-video and audio output.
+A Pac-Man Arcade implementation for the
+[TangNano9K](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-9K/Nano-9K.html)
+using HDMI for video and audio output.
 
 ![Pac-Man](images/pacman_hdmi_wide.jpeg)
 
@@ -10,7 +11,8 @@ video and audio output.
 There are many Pac-Man implementations in HDL, especially the [great
 version by MikeJ](https://www.fpgaarcade.com/kb/pacman/).  I wanted to
 gain some experiences with the GoWin FPGAs and wanted to make use of
-the HDMI output of the TangNano9K. So I wrote another Pac-Man.
+the HDMI output of the TangNano9K. So I wrote another Pac-Man using
+[HDMI](https://github.com/hdl-util/hdmi).
 
 Most existing versions recreate the original video and in a way that
 outputs an upright 60hz signal with NTSC timing expecting the screen
