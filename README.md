@@ -2,7 +2,8 @@
 
 A Pac-Man Arcade implementation for the
 [TangNano9K](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-9K/Nano-9K.html)
-using HDMI for video and audio output.
+using HDMI for video and audio output. See it in action in the
+[Youtube Video](https://www.youtube.com/shorts/erQIn8R661M).
 
 ![Pac-Man](images/pacman_hdmi_wide.jpeg)
 
