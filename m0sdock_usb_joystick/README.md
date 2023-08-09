@@ -5,6 +5,8 @@ This firmware for the
 allows to use a USB joystick in a setup expecting digital direction
 signals (UP, DOWN, LEFT, RIGHT, FIRE, ...).
 
+![USB joystick](../images/m0s_joystick.jpeg)
+
 Currently report descriptors are not parsed. This means that only
 those joysticks will work that use a certain message format on the
 USB. One joystick known to work is the [COMPETITION PRO USB](https://www.speedlink.com/en/COMPETITION-PRO-EXTRA-USB-Joystick-black-red/SL-650212-BKRD).
@@ -72,8 +74,6 @@ The joystick can be connected to the USB-C port of the M0S using a
 USB-A to USB-C adaptor. Since the joystick will not provide power
 to the M0S dock it now needs to be supplied from the 5V and GND
 pins on the extension connector.
-
-![USB joystick](../images/m0s_joystick.jpeg)
 
 The M0S doch has three LEDs. The rightmost indicates that power
 is available. This one needs to light up once 5V is applied to the
