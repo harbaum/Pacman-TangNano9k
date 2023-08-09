@@ -37,7 +37,7 @@ Compile the firmware:
 $ CROSS_COMPILE=<where you downloaded the toolchain>/bin/riscv64-unknown-elf- BL_SDK_BASE=<where you downloaded the sdk>/bouffalo_sdk/ make
 ```
 
-The resulting binary can be flashed on the the M0S. You need to unplug
+The resulting binary can be flashed onto the M0S. You need to unplug
 the M0S from USB, press the BOOT button and plug it into USB with the
 BOOT button pressed. Once connected release the BOOT button. The device
 should now show up with its bootloader on the PC:
@@ -49,8 +49,8 @@ Bus 002 Device 009: ID 349b:6160 Bouffalo Bouffalo CDC DEMO
 ...
 ```
 
-Also a ACM port should have been created for this device as e.g.
-reported in the kernel logs visible with e.g. ```dmesg```:
+Also an ACM port should have been created for this device as e.g.
+reported in the kernel logs visible with ```dmesg```:
 
 ```
 usb 2-1.7.3.3: new high-speed USB device number 9 using ehci-pci
@@ -70,22 +70,22 @@ BL_SDK_BASE=<where you downloaded the sdk>/bouffalo_sdk/ make CHIP=bl616 COMX=/d
 
 ## Usage
 
-The joystick can be connected to the USB-C port of the M0S using a
+The joystick can be connected to the USB-C port of the M0S dock using a
 USB-A to USB-C adaptor. Since the joystick will not provide power
 to the M0S dock it now needs to be supplied from the 5V and GND
 pins on the extension connector.
 
-The M0S doch has three LEDs. The rightmost indicates that power
+The M0S dock has three LEDs. The rightmost indicates that power
 is available. This one needs to light up once 5V is applied to the
 extension connector.
 
-The second LED from right is used to indicate that a HOD device has been
+The middle LED is used to indicate that a HID device has been
 detected. This means that the M0S has detected an input device (joystick,
 keyboard or mouse) on the USB port.
 
-And the third leftmost LEDs mirrors the state of the first fire button.
+And the third leftmost LED mirrors the state of the first fire button.
 If a matching joystick is connected this LED should be controllable by
-one of the joysticks fire button. If it isn't, then the joystick is not
+one of the joysticks fire buttons. If it isn't, then the joystick is not
 compatible.
 
 If the fire LED works, then the active-low digital signals should be
