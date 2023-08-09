@@ -88,3 +88,6 @@ The [pins used](src/pacman.cst) are:
 | Coin     |  IOB13A  |    29  |
 | Start    |  IOB13B  |    30  |
 
+## USB joystick
+
+You can also use a [USB joystick](m0sdock_usb_joystick/).
