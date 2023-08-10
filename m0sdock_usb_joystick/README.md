@@ -15,7 +15,7 @@ USB. One joystick known to work is the [COMPETITION PRO USB](https://www.speedli
 
 - [Youtube video with COMPETITION PRO USB](https://www.youtube.com/shorts/Z1DRsI0xd8o)
 
-## Compile
+## Compiling the firmware
 
 Compilation has only been tested under Linux.
 
@@ -34,8 +34,10 @@ git clone https://github.com/bouffalolab/bouffalo_sdk.git
 Compile the firmware:
 
 ```
-$ CROSS_COMPILE=<where you downloaded the toolchain>/bin/riscv64-unknown-elf- BL_SDK_BASE=<where you downloaded the sdk>/bouffalo_sdk/ make
+$ CROSS_COMPILE=<where you downloaded the toolchain>/toolchain_gcc_t-head_linux/bin/riscv64-unknown-elf- BL_SDK_BASE=<where you downloaded the sdk>/bouffalo_sdk/ make
 ```
+
+## Flashing the firmware
 
 The resulting binary can be flashed onto the M0S. You need to unplug
 the M0S from USB, press the BOOT button and plug it into USB with the
