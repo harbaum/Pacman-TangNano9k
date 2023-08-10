@@ -70,6 +70,8 @@ Once it shows up that way it can be flashed:
 BL_SDK_BASE=<where you downloaded the sdk>/bouffalo_sdk/ make CHIP=bl616 COMX=/dev/ttyACM3 flash
 ```
 
+After successful download you need to unplug the device again and reinsert it *without* the BOOT button pressed to boot into the newly installed firmware.
+
 ## Usage
 
 The joystick can be connected to the USB-C port of the M0S dock using a
