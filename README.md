@@ -3,7 +3,8 @@
 A Pac-Man Arcade implementation for the
 [TangNano9K](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-9K/Nano-9K.html)
 using HDMI for video and audio output. See it in action in the
-[Youtube Video](https://www.youtube.com/shorts/erQIn8R661M).
+[Youtube Video](https://www.youtube.com/shorts/erQIn8R661M). The latest version
+supports the [use of a USB Joystick](https://www.speedlink.com/en/COMPETITION-PRO-EXTRA-USB-Joystick-black-red/SL-650212-BKRD).
 
 ![Pac-Man](images/pacman_hdmi_wide.jpeg)
 
