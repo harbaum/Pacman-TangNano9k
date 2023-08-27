@@ -1,6 +1,6 @@
 # Pac-Man on TangNano
 
-This is the main README for original implementation on TangNano9k. For TangNano20k port, check also [README_20k](README_20k).
+This is the main README for original implementation on TangNano9k. For TangNano20k port, check also [README_20k](README_20k.md).
 
 # Pac-Man on TangNano9k
 
@@ -65,7 +65,7 @@ in the [src/roms](src/roms) directory and then run the
 
 Convert the ROMs as described above.
 
-Open the project file pacman.gprj from the corresponding board folder in the GoWin IDE run the synthesis, implementation and download the resulting bitstream onto the TangNano.
+Open the project file pacman.gprj from the corresponding board folder in the GoWin IDE run the synthesis, place & route and download the resulting bitstream onto the TangNano.
 
 ## Buttons
 
