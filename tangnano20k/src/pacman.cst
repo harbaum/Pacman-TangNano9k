@@ -1,0 +1,38 @@
+IO_LOC "tmds_d_p[0]" 35,36;
+IO_PORT "tmds_d_p[0]" PULL_MODE=NONE DRIVE=8;
+IO_LOC "tmds_d_p[1]" 37,38;
+IO_PORT "tmds_d_p[1]" PULL_MODE=NONE DRIVE=8;
+IO_LOC "tmds_d_p[2]" 39,40;
+IO_PORT "tmds_d_p[2]" PULL_MODE=NONE DRIVE=8;
+IO_LOC "tmds_clk_p" 33,34;
+IO_PORT "tmds_clk_p" PULL_MODE=NONE DRIVE=8;
+
+IO_LOC "btn_up" 77;
+IO_PORT "btn_up" PULL_MODE=UP;
+IO_LOC "btn_down" 15;
+IO_PORT "btn_down" PULL_MODE=UP;
+IO_LOC "btn_left" 16;
+IO_PORT "btn_left" PULL_MODE=UP;
+IO_LOC "btn_right" 27;
+IO_PORT "btn_right" PULL_MODE=UP;
+IO_LOC "btn_coin" 28;
+IO_PORT "btn_coin" PULL_MODE=UP;
+IO_LOC "btn_start" 25;
+IO_PORT "btn_start" PULL_MODE=UP;
+
+IO_LOC "user" 88;
+IO_PORT "user" PULL_MODE=NONE;
+IO_LOC "reset" 87;
+IO_PORT "reset" PULL_MODE=NONE;
+IO_LOC "clk" 4;
+IO_PORT "clk" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+// Joystick 1
+IO_LOC "joystick_clk" 17;
+IO_PORT "joystick_clk" PULL_MODE=NONE IO_TYPE=LVCMOS33;
+IO_LOC "joystick_mosi" 20;
+IO_PORT "joystick_mosi" PULL_MODE=NONE IO_TYPE=LVCMOS33;
+IO_LOC "joystick_miso" 19;
+IO_PORT "joystick_miso" PULL_MODE=UP IO_TYPE=LVCMOS33;
+IO_LOC "joystick_cs"  18;
+IO_PORT "joystick_cs" PULL_MODE=NONE IO_TYPE=LVCMOS33;

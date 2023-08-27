@@ -1,11 +1,11 @@
+# Pac-Man on TangNano
+
+This is the main README for original implementation on TangNano9k. For TangNano20k port, check also [README_20k](README_20k).
+
 # Pac-Man on TangNano9k
 
-A Pac-Man Arcade implementation for the
-[TangNano9K](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-9K/Nano-9K.html)
-using HDMI for video and audio output. See it in action in the
-[Youtube Video](https://www.youtube.com/shorts/erQIn8R661M). The latest version
-supports the [use of a USB Joystick](m0sdock_usb_joystick/) as demonstrated in
-[this video](https://www.youtube.com/shorts/Z1DRsI0xd8o).
+A Pac-Man Arcade implementation for the [TangNano9K](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-9K/Nano-9K.html) using HDMI for video and audio output. See it in action in the
+[Youtube Video](https://www.youtube.com/shorts/erQIn8R661M). The latest version supports the [use of a USB Joystick](m0sdock_usb_joystick/) as demonstrated in [this video](https://www.youtube.com/shorts/Z1DRsI0xd8o).
 
 ![Pac-Man](images/pacman_hdmi_wide.jpeg)
 
@@ -32,19 +32,17 @@ by something that outputs a double scanned signal with 576 lines
 By default the video is 1024x576p to nicely fit a 16:9 screen. The
 game area is displayed centered with a dark blue border left and right.
 The video can be configured to output a 4:3 video with a resolution
-of 768x576p instead by commenting [this line](https://github.com/harbaum/Pacman-TangNano9k/blob/ffd44de5259a00c62c5a04174b707afd308611b1/src/top.sv#L4).
+of 768x576p instead by commenting ``define WIDE` in line 4 of src/top.sv.
 
 ## ROMs
 
 Since this project implements the hardware of the Pac-Man Arcade
 machine it needs the original ROM files to run. These can
-be obtained from the
-[Pac-Man (Midway)](https://www.bing.com/search?q=pacman+midway+arcade+rom) romset.
+be obtained from the [Pac-Man (Midway)](https://www.bing.com/search?q=pacman+midway+arcade+rom) romset.
 
 The ROMs need to be converted into HDL source files compatible with
 the GoWin toolchain. This can either be done manually using the GoWin
-IDE or via the [Python conversion tool](src/roms/bin2v.py) and [a
-shell script](src/roms/conv.sh).
+IDE or via the [Python conversion tool](src/roms/bin2v.py) and [a shell script](src/roms/conv.sh).
 
 |     ROM file    |     Contents    |   Verilog file    |     Module     | Depth | Width |
 |-----------------|-----------------|-------------------|----------------|------:|------:|
@@ -67,10 +65,7 @@ in the [src/roms](src/roms) directory and then run the
 
 Convert the ROMs as described above.
 
-Open the [project
-file](https://github.com/harbaum/Pacman-TangNano9k/blob/main/pacman.gprj)
-in the GoWin IDE run the synthesis and download the resulting
-bitstream onto the TangNano9K.
+Open the project file pacman.gprj from the corresponding board folder in the GoWin IDE run the synthesis, implementation and download the resulting bitstream onto the TangNano.
 
 ## Buttons
 
@@ -79,7 +74,7 @@ as depicted below:
 
 ![Button mapping](images/buttons.jpg)
 
-The [pins used](src/pacman.cst) are:
+The [pins used](tangnano9k/src/pacman.cst) are:
 
 | Function | Pin Name | Pin No |
 |----------|---------:|-------:|
