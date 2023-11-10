@@ -17,7 +17,7 @@ USB. One joystick known to work is the [COMPETITION PRO USB](https://www.speedli
 
 ## Compiling the firmware
 
-Compilation has only been tested under Linux.
+Compilation has only been tested under Linux. The following instructions assume that you have already downloaded the contents of this repository.
 
 Download the Bouffalo toolchain:
 
@@ -31,7 +31,7 @@ And the Bouffalo SDK:
 git clone https://github.com/bouffalolab/bouffalo_sdk.git
 ```
 
-Compile the firmware:
+Then go to the local copy of this source directory containing the firmware source code. Compile the firmware:
 
 ```
 $ CROSS_COMPILE=<where you downloaded the toolchain>/toolchain_gcc_t-head_linux/bin/riscv64-unknown-elf- BL_SDK_BASE=<where you downloaded the sdk>/bouffalo_sdk/ make
