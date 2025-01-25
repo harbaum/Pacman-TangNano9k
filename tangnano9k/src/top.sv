@@ -88,6 +88,7 @@ logic [23:0] rgb;                // rgb color signal
 logic [10:0] cx;                 // horizontal pixel counter
 logic [9:0]  cy;                 // vertical pixel counter
 reg [9:0] audio_out_register;    // register holding the single pacman audio channel
+wire [15:0] audio_out = { {2{audio_out_register[9]}}, audio_out_register, 4'b0000 };
 
 hdmi #(.VIDEO_ID_CODE(65), .VIDEO_WIDE(`VIDEO_WIDE), .VIDEO_REFRESH_RATE(60),
     .AUDIO_RATE(48000), .AUDIO_BIT_WIDTH(16),
@@ -99,7 +100,7 @@ hdmi #(.VIDEO_ID_CODE(65), .VIDEO_WIDE(`VIDEO_WIDE), .VIDEO_REFRESH_RATE(60),
   .clk_audio(clk_audio),
   .reset(!sys_resetn),
   .rgb(rgb),
-  .audio_sample_word( {{ 6'h00, audio_out_register }, { 6'h00, audio_out_register }} ),
+  .audio_sample_word( { audio_out, audio_out} ),
   .tmds(tmds),
   .tmds_clock(tmds_clock),
   .cx(cx),
