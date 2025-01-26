@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<efx:project name="pacman" description="" last_change="1737835197" sw_version="2024.2.294.1.19" last_run_state="pass" last_run_flow="bitstream" config_result_in_sync="true" design_ood="sync" place_ood="sync" route_ood="sync" xmlns:efx="http://www.efinixinc.com/enf_proj" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.efinixinc.com/enf_proj enf_proj.xsd">
+<efx:project name="pacman" description="" last_change="1737905566" sw_version="2024.2.294.1.19" last_run_state="pass" last_run_flow="bitstream" config_result_in_sync="true" design_ood="sync" place_ood="sync" route_ood="sync" xmlns:efx="http://www.efinixinc.com/enf_proj" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.efinixinc.com/enf_proj enf_proj.xsd">
     <efx:device_info>
         <efx:family name="Trion"/>
         <efx:device name="T20Q144"/>
@@ -24,6 +24,16 @@
         <efx:design_file name="T80/T80sed.vhd" version="default" library="default"/>
         <efx:design_file name="T80/T80_ALU.vhd" version="default" library="default"/>
         <efx:design_file name="T80/T80_MCode.vhd" version="default" library="default"/>
+        <efx:design_file name="roms/pacman_6e.v" version="default" library="default"/>
+        <efx:design_file name="roms/pacman_6j.v" version="default" library="default"/>
+        <efx:design_file name="roms/pacman_6h.v" version="default" library="default"/>
+        <efx:design_file name="roms/prom_82s123_7f.v" version="default" library="default"/>
+        <efx:design_file name="roms/pacman_5e.v" version="default" library="default"/>
+        <efx:design_file name="roms/prom_82s126_3m.v" version="default" library="default"/>
+        <efx:design_file name="roms/prom_82s126_1m.v" version="default" library="default"/>
+        <efx:design_file name="roms/pacman_6f.v" version="default" library="default"/>
+        <efx:design_file name="roms/pacman_5f.v" version="default" library="default"/>
+        <efx:design_file name="roms/prom_82s126_4a.v" version="default" library="default"/>
         <efx:top_vhdl_arch name=""/>
     </efx:design_info>
     <efx:constraint_info>
@@ -34,44 +44,7 @@
     </efx:isf_info>
     <efx:sim_info/>
     <efx:misc_info/>
-    <efx:ip_info>
-        <efx:ip instance_name="pacman_6e" path="ip/pacman_6e/settings.json">
-            <efx:ip_src_file name="pacman_6e.v"/>
-        </efx:ip>
-        <efx:ip instance_name="pacman_6f" path="ip/pacman_6f/settings.json">
-            <efx:ip_src_file name="pacman_6f.v"/>
-        </efx:ip>
-        <efx:ip instance_name="pacman_6h" path="ip/pacman_6h/settings.json">
-            <efx:ip_src_file name="pacman_6h.v"/>
-        </efx:ip>
-        <efx:ip instance_name="pacman_6j" path="ip/pacman_6j/settings.json">
-            <efx:ip_src_file name="pacman_6j.v"/>
-        </efx:ip>
-        <efx:ip instance_name="pacman_5e" path="ip/pacman_5e/settings.json">
-            <efx:ip_src_file name="pacman_5e.v"/>
-        </efx:ip>
-        <efx:ip instance_name="pacman_5f" path="ip/pacman_5f/settings.json">
-            <efx:ip_src_file name="pacman_5f.v"/>
-        </efx:ip>
-        <efx:ip instance_name="prom_82s126_1m" path="ip/prom_82s126_1m/settings.json">
-            <efx:ip_src_file name="prom_82s126_1m.v"/>
-        </efx:ip>
-        <efx:ip instance_name="prom_82s126_3m" path="ip/prom_82s126_3m/settings.json">
-            <efx:ip_src_file name="prom_82s126_3m.v"/>
-        </efx:ip>
-        <efx:ip instance_name="prom_82s123_7f" path="ip/prom_82s123_7f/settings.json">
-            <efx:ip_src_file name="prom_82s123_7f.v"/>
-        </efx:ip>
-        <efx:ip instance_name="prom_82s126_4a" path="ip/prom_82s126_4a/settings.json">
-            <efx:ip_src_file name="prom_82s126_4a.v"/>
-        </efx:ip>
-        <efx:ip instance_name="ram" path="ip/ram/settings.json">
-            <efx:ip_src_file name="ram.v"/>
-        </efx:ip>
-        <efx:ip instance_name="banner" path="ip/banner/settings.json">
-            <efx:ip_src_file name="banner.v"/>
-        </efx:ip>
-    </efx:ip_info>
+    <efx:ip_info/>
     <efx:synthesis tool_name="efx_map">
         <efx:param name="work_dir" value="work_syn" value_type="e_string"/>
         <efx:param name="write_efx_verilog" value="on" value_type="e_bool"/>
@@ -107,18 +80,6 @@
         <efx:param name="max_threads" value="-1" value_type="e_integer"/>
         <efx:param name="mult_input_regs_packing" value="1" value_type="e_option"/>
         <efx:param name="mult_output_regs_packing" value="1" value_type="e_option"/>
-        <efx:param name="include" value="ip/pacman_6e" value_type="e_string"/>
-        <efx:param name="include" value="ip/pacman_6f" value_type="e_string"/>
-        <efx:param name="include" value="ip/pacman_6h" value_type="e_string"/>
-        <efx:param name="include" value="ip/pacman_6j" value_type="e_string"/>
-        <efx:param name="include" value="ip/pacman_5e" value_type="e_string"/>
-        <efx:param name="include" value="ip/pacman_5f" value_type="e_string"/>
-        <efx:param name="include" value="ip/prom_82s126_1m" value_type="e_string"/>
-        <efx:param name="include" value="ip/prom_82s126_3m" value_type="e_string"/>
-        <efx:param name="include" value="ip/prom_82s123_7f" value_type="e_string"/>
-        <efx:param name="include" value="ip/prom_82s126_4a" value_type="e_string"/>
-        <efx:param name="include" value="ip/ram" value_type="e_string"/>
-        <efx:param name="include" value="ip/banner" value_type="e_string"/>
         <efx:defmacro name="EFINITY" value="1"/>
     </efx:synthesis>
     <efx:place_and_route tool_name="efx_pnr">

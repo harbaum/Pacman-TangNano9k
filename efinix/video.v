@@ -16,7 +16,7 @@ module video #(
     input mem_spr_en,
     input [11:0] mem_addr,
     input [7:0] mem_din,
-    output [7:0] mem_dout,
+    output reg [7:0] mem_dout,
     input mem_wr_n,
     output reg vbi,
 
@@ -133,7 +133,7 @@ module video #(
         (ty == 35)?(  12'd61-tx):   // row 35:    61 ...  34
         12'd928 + (ty-12'd2) - { tx, 5'b00000 } ); 
 
-    wire [7:0] ram_dout;
+    reg [7:0] ram_dout;
 
     // tile address: The lower bits address one of the 16 bytes a tile consists of and
     // the upper bits address the tile
@@ -164,19 +164,16 @@ module video #(
 
     // Instantiate 4k main ram. This also includes the 1k tile
     // ram and the 1k tile color ram
-	ram ram (
-        // port a: CPU interface (RW)
-		.clk(clk),
-        .we_a(mem_en && !mem_wr_n),
-        .addr_a(mem_addr),
-        .wdata_a(mem_din),
-        .rdata_a(mem_dout),
-
-        // port B: video interface (read only)
-        .we_b(1'b0),
-        .addr_b(ram_addr),
-        .rdata_b(ram_dout)
-    );
+    reg [7:0] ram [4096];
+    always @(posedge clk) begin
+        if(mem_en) begin
+            if(!mem_wr_n)
+                ram[mem_addr] <= mem_din;
+            else
+                mem_dout <= ram[mem_addr];
+        end
+        ram_dout <= ram[ram_addr];
+    end
     
     // rom pacman.5f contains the graphics data for the 
     // 16x16 sprites. For each pixel two bits are
